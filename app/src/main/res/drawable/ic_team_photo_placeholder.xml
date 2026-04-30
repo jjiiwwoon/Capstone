@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 배경 원 -->
+    <path
+        android:fillColor="#EEEEEE"
+        android:pathData="M12,2A10,10 0,1 0,22,12A10,10 0,0 0,12,2z" />
+
+    <!-- 머리 -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M12,8a3,3 0,1 1,0,6a3,3 0,0 1,0,-6z" />
+
+    <!-- 어깨 (원이 넘치지 않도록 낮고 안쪽에 배치) -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M6,17c0,-2.2,2.7,-4,6,-4s6,1.8,6,4v1H6v-1z" />
+</vector>

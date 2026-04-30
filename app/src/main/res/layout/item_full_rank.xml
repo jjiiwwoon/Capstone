@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/rankOrder"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="#4"
+        android:textStyle="bold"
+        android:textColor="#111111"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/rankAvatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:id="@+id/rankName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="닉네임"
+        android:textColor="#111111"/>
+
+    <TextView
+        android:id="@+id/rankGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0골"
+        android:textStyle="bold"
+        android:textColor="#111111"/>
+</LinearLayout>

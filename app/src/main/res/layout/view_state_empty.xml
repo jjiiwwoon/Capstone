@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">   <!-- ✅ 가로 중앙 정렬 추가 -->
+
+    <!-- 상단 여백 영역 (전체의 0.6 비율 차지) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6" />
+
+    <!-- 메시지 영역 -->
+    <TextView
+        android:id="@+id/txtEmptyMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="표시할 데이터가 없어요."
+        android:textSize="16sp"
+        android:textColor="#6B7280"
+        android:gravity="center" />   <!-- ✅ 내부 텍스트 정렬도 중앙 -->
+
+    <!-- 나머지 여백 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" />
+</LinearLayout>

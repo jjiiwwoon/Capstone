@@ -1,0 +1,81 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="팀이 자주 활동하는 장소를\n등록해주세요"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="8dp"> <!-- ✅ 양 옆 여백 추가 -->
+
+        <EditText
+            android:id="@+id/editSearchKeyword"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="장소 검색"
+            android:background="@drawable/bg_edittext_rounded"
+            android:paddingHorizontal="16dp"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp" /> <!-- ✅ 내부 여백 추가 -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="검색"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:paddingHorizontal="12dp"
+            app:icon="@drawable/ic_search"
+            app:iconTint="#FFFFFF"
+            app:iconPadding="6dp"
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#2196F3" /> <!-- ✅ 내부 여백 추가 -->
+    </LinearLayout>
+
+
+
+    <!-- 📍 지도 -->
+    <com.naver.maps.map.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="12dp" />
+
+    <!-- ✅ 장소 선택 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSelectStadium"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="이 장소 선택"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="12dp"
+        app:backgroundTint="#00BCD4"
+        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="12dp" /> <!-- ✅ 좌우 여백 추가 -->
+
+</LinearLayout>

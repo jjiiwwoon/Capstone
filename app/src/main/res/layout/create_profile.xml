@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    android:background="#F0F4F8">
+
+    <LinearLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 타이틀 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="프로필 만들기"
+            android:textColor="#0E1B2A"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.01"
+            android:gravity="center"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 섹션 1: 프로필 사진 + 기본 정보 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#E6EEF5"
+            app:strokeWidth="1dp">
+
+            <!-- 가로 배치 + 세로 중앙 정렬 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <!-- 프로필 이미지 + 하단 라벨(세로) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <!-- 원형 이미지 컨테이너 -->
+                    <FrameLayout
+                        android:id="@+id/profileClickableArea"
+                        android:layout_width="108dp"
+                        android:layout_height="108dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imageProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="프로필 사진"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+                            app:strokeColor="#E0E0E0"
+                        app:strokeWidth="1dp"
+                        android:background="#F9FAFB"
+                        android:clipToOutline="true" />
+
+
+
+                        <!-- 초기 오버레이 아이콘(사람 실루엣) -->
+                        <ImageView
+                            android:id="@+id/iconProfileOverlay"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_profile_add"
+                            android:tint="#8A95A1"
+                            android:alpha="0.95"/>
+                    </FrameLayout>
+
+                    <!-- 안내 텍스트 -->
+                    <TextView
+                        android:id="@+id/textProfileHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="프로필 사진"
+                        android:textSize="13sp"
+                        android:textColor="#616161"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- 우측 입력 영역 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editNickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_field"
+                        android:hint="닉네임"
+                        android:paddingHorizontal="14dp"
+                        android:textColor="#111111"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/editAge"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_field"
+                        android:hint="나이"
+                        android:inputType="number"
+                        android:paddingHorizontal="14dp"
+                        android:textColor="#111111"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editHeight"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_field"
+                            android:hint="키(cm)"
+                            android:inputType="number"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="15sp" />
+
+                        <Space
+                            android:layout_width="8dp"
+                            android:layout_height="1dp" />
+
+                        <EditText
+                            android:id="@+id/editWeight"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_field"
+                            android:hint="몸무게(kg)"
+                            android:inputType="number"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <!-- 섹션 2: 포지션 / 실력 / 선수출신 / 선출 단계 / 주발  -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#E6EEF5"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- ===== 공통 라벨 폭: 96dp ===== -->
+
+                <!-- 포지션 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- 라벨(고정폭) -->
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start|center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_soccer"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="포지션"
+                            android:textSize="14sp"
+                            android:textColor="#0E1B2A"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 입력(가로 동일) -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_field"
+                        android:paddingHorizontal="14dp"
+                        android:addStatesFromChildren="true">
+
+                        <Spinner
+                            android:id="@+id/spinnerPosition"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:alpha="0.6" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- 실력 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start|center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_star"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="실력"
+                            android:textSize="14sp"
+                            android:textColor="#0E1B2A"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_field"
+                        android:paddingHorizontal="14dp"
+                        android:addStatesFromChildren="true">
+
+                        <Spinner
+                            android:id="@+id/spinnerSkill"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:alpha="0.6" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- 선수출신 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start|center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_player_origin"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="선수출신"
+                            android:textSize="14sp"
+                            android:textColor="#0E1B2A"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="14dp"
+                        android:background="@drawable/bg_field">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupPlayerType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/radioPro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="선출"
+                                android:textColor="@color/radio_text_selector"
+                                app:useMaterialThemeColors="false"
+                                app:buttonTint="@color/radio_blue_tint" />
+
+                            <Space
+                                android:layout_width="16dp"
+                                android:layout_height="1dp" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/radioAmateur"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="비선출"
+                                android:textColor="@color/radio_text_selector"
+                                app:useMaterialThemeColors="false"
+                                app:buttonTint="@color/radio_blue_tint" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 선출 단계 -->
+                <LinearLayout
+                    android:id="@+id/layoutSelectPlayerLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start|center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_trophy_level"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="선출 단계"
+                            android:textSize="14sp"
+                            android:textColor="#0E1B2A"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_field"
+                        android:paddingHorizontal="14dp"
+                        android:addStatesFromChildren="true">
+
+                        <Spinner
+                            android:id="@+id/spinnerPlayerLevel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:alpha="0.6" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- 주발 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start|center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_foot_primary"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주발"
+                            android:textSize="14sp"
+                            android:textColor="#0E1B2A"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_field"
+                        android:paddingHorizontal="14dp"
+                        android:addStatesFromChildren="true">
+
+                        <Spinner
+                            android:id="@+id/spinnerFoot"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:alpha="0.6" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <!-- 섹션 3: 자기소개 (아이콘 + 텍스트 라벨을 따로 표시) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#E6EEF5"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- 라벨 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="6dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_notes"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="자기소개"
+                        android:textColor="#0E1B2A"
+                        android:textSize="14sp"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <!-- 입력 -->
+                <EditText
+                    android:id="@+id/editIntroduction"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:gravity="top|start"
+                    android:hint="자기소개를 입력해주세요"
+                    android:padding="12dp"
+                    android:textColor="#111111"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_field_multiline"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:overScrollMode="always"
+                    android:minLines="5"
+                    android:maxLines="6"
+                    android:imeOptions="flagNoFullscreen|actionDone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 저장 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:text="프로필 저장하기"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="16dp"
+            app:useMaterialThemeColors="false"
+            android:background="@drawable/bg_button_primary_ripple"
+            app:backgroundTint="@null"/>
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="16dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

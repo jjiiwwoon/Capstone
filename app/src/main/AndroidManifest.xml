@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 권한 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApp"
+        tools:targetApi="31">
+
+        <!-- ✅ 실제 클래스(존재/사용 가능)만 남김 -->
+        <activity android:name=".RecruitDetail" android:exported="false" />
+        <activity android:name=".ApplicationsList" android:exported="false" />
+        <activity android:name=".Records" android:exported="false" />
+        <activity android:name=".MatchApplication" android:exported="false" />
+        <activity android:name=".MatchDetail" android:exported="false" />
+        <activity android:name=".CreateMatch" android:exported="false" />
+        <!-- ⛔ 삭제: MatchCreateActivity (클래스 없으면 선언 금지)
+        <activity android:name=".MatchCreateActivity" android:exported="false" /> -->
+        <activity android:name=".CreateRecruit" android:exported="false" />
+        <activity android:name=".Tactics" android:exported="false" />
+        <activity android:name=".Schedule" android:exported="false" />
+        <activity android:name=".StadiumMapView" android:exported="false" />
+        <activity android:name=".TeamDetail" android:exported="false" />
+
+        <!-- ⛔ 아래 3개는 'Fragment일 가능성' 높음 → 일단 Manifest에서 제거
+        <activity android:name=".RecruitPost" android:exported="false" />
+        <activity android:name=".Recruit" android:exported="false" />
+        <activity android:name=".Recruitment" android:exported="false" />
+        -->
+
+        <activity
+            android:name=".ChatRoom"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity android:name=".ChatList" android:exported="false" />
+        <activity android:name=".StadiumSearch" android:exported="false" />
+        <activity android:name=".CreateTeam" android:exported="false" />
+        <activity android:name=".Chat" android:exported="false" />
+        <activity android:name=".AllTeam" android:exported="false" />
+        <!-- ⛔ Board가 Fragment면 제거, Activity면 유지 -->
+        <!-- <activity android:name=".Board" android:exported="false" /> -->
+        <activity android:name=".MyTeam" android:exported="false" />
+        <!-- ⛔ Match가 탭/Fragment면 제거, Activity면 유지 -->
+        <!-- <activity android:name=".Match" android:exported="false" /> -->
+        <!-- ⛔ OneDay도 Fragment 가능성 높음 -->
+        <!-- <activity android:name=".OneDay" android:exported="false" /> -->
+        <activity android:name=".MyProfile" android:exported="false" />
+
+        <activity
+            android:name=".CreateProfile"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- ⛔ 삭제: 패키지 경로 불일치(ui.login 패키지 없음) -->
+        <!-- <activity android:name=".ui.login.LoginActivity" android:exported="false"
+                  android:label="@string/title_activity_login" /> -->
+
+        <activity android:name=".Home" android:exported="false" />
+        <activity android:name=".Register" android:exported="false" />
+
+        <!-- LAUNCHER는 Login 하나만 → exported=true 필수(API 31+) -->
+        <activity android:name=".Login" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.naver.maps.map.NCP_KEY_ID"
+            android:value="v2b4ia65j5" />
+    </application>
+</manifest>

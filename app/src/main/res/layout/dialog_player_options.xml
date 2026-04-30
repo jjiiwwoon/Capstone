@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/dialog_background">
+
+    <!-- 상단 닉네임 텍스트 -->
+    <TextView
+        android:id="@+id/txtPlayerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user6"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <!-- 부주장 권한 버튼 (부여 or 해제) -->
+    <LinearLayout
+        android:id="@+id/btnAssignVice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/txtAssignViceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="부주장 권한 부여"
+            android:textSize="15sp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- 주장 권한 위임 -->
+    <LinearLayout
+        android:id="@+id/btnAssignCaptain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="주장 권한 위임"
+            android:textSize="15sp"
+            android:textColor="#1976D2"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- 팀원 방출 -->
+    <LinearLayout
+        android:id="@+id/btnKickPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="팀원 방출"
+            android:textSize="15sp"
+            android:textColor="#D32F2F"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

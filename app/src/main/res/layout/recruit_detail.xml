@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myapp.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:loadingLayout="@layout/view_state_loading"
+    app:emptyLayout="@layout/view_state_empty">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F3F4F6"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:id="@+id/scrollArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/layoutRoot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 1) 팀 정보 카드 -->
+                <LinearLayout
+                    android:id="@+id/teamInfoBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_light"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_shield_gray"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="팀 정보"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imgTeamLogo"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="12dp"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTeamName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="팀 이름"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#111111" />
+
+                            <TextView
+                                android:id="@+id/tvSkillRange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="실력 4 ~ 10"
+                                android:textSize="13sp"
+                                android:textColor="#666666" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/infoChipsDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/chipAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="나이대: 20~30대"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/chipRegion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="지역: 서울 강동구"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/chipSkill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="실력: 5"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_calendar"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:id="@+id/tvTimeLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="활동 시간"
+                            android:textColor="#111111"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/pill_bg"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:layout_marginTop="6dp">
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2025-10-11"
+                            android:textColor="#111111"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  |  "
+                            android:textColor="#90A4AE"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18:00 ~ 22:00"
+                            android:textColor="#111111"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_location_pin"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:id="@+id/tvStadiumLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주 활동 장소"
+                            android:textColor="#111111"
+                            android:textSize="14sp"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStadium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="천마축구장"
+                        android:textColor="#111111"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="6dp" />
+
+                    <LinearLayout
+                        android:id="@+id/addressTapArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_field_tap"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_marginTop="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_map"
+                            android:tint="#1E88E5" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="대한민국 서울특별시 송파구 마천동 236-1"
+                            android:textSize="14sp"
+                            android:textColor="#1E88E5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 2) 모집사항 카드 -->
+                <LinearLayout
+                    android:id="@+id/recruitBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_light"
+                    android:padding="12dp"
+                    android:layout_marginTop="16dp">
+
+                    <!-- 모집유형 제목 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_group_type"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="모집유형"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 모집유형 칩 (색상 유지) -->
+                    <TextView
+                        android:id="@+id/tvRecruitType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="회원"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:includeFontPadding="false"
+                        android:background="@drawable/bg_badge_member" />
+
+                    <!-- 희망실력 -->
+                    <LinearLayout
+                        android:id="@+id/skillHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="14dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_trophy_level"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="희망실력"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvRecruitSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="4 ~ 10"
+                        android:textSize="15sp"
+                        android:textColor="#111111" />
+
+
+                    <!-- 모집 포지션 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_position"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="모집 포지션"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupPositions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleLine="false"
+                        app:singleSelection="false"
+                        app:chipSpacingHorizontal="8dp"
+                        app:chipSpacingVertical="6dp" />
+
+                    <!-- 상세소개 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_notes"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="상세 소개"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvIntro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="팀 소개 및 요청사항 내용이 여기에 표시됩니다."
+                        android:textSize="14sp"
+                        android:textColor="#111111"
+                        android:background="@drawable/bg_field_readonly"
+                        android:padding="12dp"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 하단 버튼 -->
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApply"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="신청하기"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:cornerRadius="24dp"
+                android:backgroundTint="#0ED7ED"
+                app:rippleColor="@color/white" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.example.myapp.StateLayout>

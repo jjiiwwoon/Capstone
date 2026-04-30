@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 체크됨 -->
+    <item android:state_checked="true" android:color="#1E88E5"/>  <!-- 파란색 -->
+    <!-- 비체크 -->
+    <item android:color="#9AA7B2"/>  <!-- 연회색 -->
+</selector>

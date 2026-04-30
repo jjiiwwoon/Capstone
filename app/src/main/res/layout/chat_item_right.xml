@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:gravity="end">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- 시간: 말풍선의 '왼쪽 아래' -->
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오전 11:47"
+            android:textSize="10sp"
+            android:textColor="#999999"
+            app:layout_constraintEnd_toStartOf="@id/textMessage"
+            app:layout_constraintBottom_toBottomOf="@id/textMessage"
+            android:layout_marginEnd="6dp" />
+
+        <!-- 말풍선 -->
+        <TextView
+            android:id="@+id/textMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chat_right"
+            android:padding="10dp"
+            android:text="내가 보낸 메시지"
+            android:textSize="14sp"
+            android:textColor="#111111"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="2dp"
+            android:breakStrategy="simple"
+            android:hyphenationFrequency="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

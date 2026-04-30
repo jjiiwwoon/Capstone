@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- 깃대 (막대기) -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M6,6h36a2,2 0 0 1 0,4H6a2,2 0 0 1 0,-4z" />
+
+    <!-- 깃발 본체 -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M14,10v28l10,-5l10,5V10z" />
+
+    <!-- 방패 문양 -->
+    <path
+        android:fillColor="#CCCCCC"
+        android:pathData="M20,18h8v5c0,4 -2,6 -4,6s-4,-2 -4,-6z" />
+</vector>

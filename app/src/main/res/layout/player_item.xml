@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:gravity="center_vertical"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <!-- 프로필 이미지 -->
+<com.google.android.material.imageview.ShapeableImageView
+android:id="@+id/playerImage"
+android:layout_width="40dp"
+android:layout_height="40dp"
+android:layout_marginEnd="12dp"
+android:scaleType="centerCrop"
+android:src="@drawable/default_profile_image"
+android:contentDescription="선수 이미지"
+app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+    <!-- 이름/포지션 -->
+<LinearLayout
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:orientation="vertical">
+
+<!-- 이름 | 포지션 (스팬으로 색 넣는 텍스트) -->
+<TextView
+    android:id="@+id/playerName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="이름 | 포지션"
+    android:textSize="14sp"
+    android:textColor="#111111"
+    android:textStyle="bold" />
+
+<!-- 포지션 단독 표시는 숨김(호환용) -->
+<TextView
+    android:id="@+id/playerPosition"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="포지션"
+    android:textSize="13sp"
+    android:textColor="#666666"
+    android:visibility="gone" />
+</LinearLayout>
+
+    <!-- 태그: 주장/부주장 -->
+<TextView
+android:id="@+id/playerCaptainTag"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="주장"
+android:textSize="13sp"
+android:textColor="#D32F2F"
+android:layout_marginEnd="6dp"
+android:visibility="gone" />
+
+<TextView
+android:id="@+id/playerViceTag"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="부주장"
+android:textSize="13sp"
+android:textColor="#00796B"
+android:visibility="gone" />
+    </LinearLayout>

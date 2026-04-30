@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 일정 선택용 리스트 아이템 (팀명1 vs 팀명2 / 날짜|시간 / 장소명 / 주소)
+     - 좌측 포인트 스트립으로 밋밋함 줄이기
+     - 우측에 상태 칩(예: D-3, 오늘, 완료 등)
+     - 마지막에 아이템 구분선 포함 (리스트에서 여러 개일 때 구분)
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <!-- 카드 컨테이너 -->
+    <LinearLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_light"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:elevation="1dp">
+
+        <!-- 좌측 포인트 스트립 -->
+        <View
+            android:id="@+id/stripe"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:background="#42A5F5" />
+
+        <!-- 콘텐츠 영역 -->
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 1줄: 팀 vs 팀 + 상태칩 -->
+            <LinearLayout
+                android:id="@+id/rowTeams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/textTeams"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="우리팀명 vs 상대팀명"
+                    android:textColor="#111111"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <!-- 상태 칩(예: D-3, 오늘, 완료 등) : 앱에 있는 칩 드로어블 재활용 -->
+                <TextView
+                    android:id="@+id/chipStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:minWidth="44dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:gravity="center"
+                    android:text="D-3"
+                    android:textSize="12sp"
+                    android:textColor="#1E88E5"
+                    android:background="@drawable/bg_chip_outline_blue" />
+            </LinearLayout>
+
+            <!-- 2줄: 날짜 | 시간 -->
+            <LinearLayout
+                android:id="@+id/rowDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/iconCalendar"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_calendar"
+                    android:tint="#42A5F5" />
+
+                <TextView
+                    android:id="@+id/textDateTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="2025-10-21  |  19:00 ~ 21:00"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- 3줄: 장소명 + 주소(작게) -->
+            <LinearLayout
+                android:id="@+id/rowPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/iconPin"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_location_pin"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:id="@+id/textStadiumName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="월드컵경기장(보조)"
+                        android:textColor="#111111"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textStadiumAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                android:layout_marginTop="2dp"
+                android:text="서울특별시 마포구 성산동 515-10"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 아이템 간 구분선 -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#EAEAEA" />
+
+</LinearLayout>

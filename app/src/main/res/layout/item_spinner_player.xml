@@ -1,0 +1,35 @@
+<!-- res/layout/item_spinner_player.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선수명"
+        android:textSize="14sp"
+        android:textColor="#111827"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+    <!-- ✅ 용병 칩: item_attendance_user.xml에서 쓰던 것과 동일 스타일 -->
+    <TextView
+        android:id="@+id/chipMercenary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="용병"
+        android:textSize="11sp"
+        android:textColor="#8A2C00"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_chip_mercenary"
+        android:visibility="gone"/>
+</LinearLayout>

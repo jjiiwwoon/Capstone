@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- 닉네임 입력 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="초대할 유저 닉네임"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeColor="#B0BEC5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editNickname"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:drawableStart="@drawable/ic_person_24"
+        android:drawablePadding="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 안내 텍스트 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="14dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_info_24"
+            android:tint="#90A4AE"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/textInviteInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="초대 메시지를 보냅니다"
+            android:textSize="12sp"
+            android:textColor="#777777"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- 확인 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSendInvite"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="확인"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        app:cornerRadius="14dp"
+        app:backgroundTint="#2196F3" />
+</LinearLayout>

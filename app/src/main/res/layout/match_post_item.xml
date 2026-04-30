@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- 내용 영역 (고정 높이) -->
+    <RelativeLayout
+        android:id="@+id/itemRoot"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:padding="12dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- 🔹 왼쪽: 로고 + 팀명 (세로 중앙 정렬) -->
+        <LinearLayout
+            android:id="@+id/leftColumn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageTeamLogo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground"
+                app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+            <!-- 팀 이름: 로고 폭 고정, 2줄까지 -->
+            <TextView
+                android:id="@+id/textTeamName"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="팀 이름"
+                android:textColor="#111111"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- 🔹 우측: 정보 -->
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/leftColumn"
+            android:layout_toStartOf="@+id/textTimestamp"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <!-- 날짜 | 시간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/textDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2025-10-31"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#2C2C2C" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" | "
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="14sp"
+                    android:textColor="#9AA0A6" />
+
+                <TextView
+                    android:id="@+id/textTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20:00 ~ 22:00"
+                    android:textSize="14sp"
+                    android:textColor="#4A4A4A" />
+            </LinearLayout>
+
+            <!-- 주소: 고정 높이 행 안에서 1줄만 노출 -->
+            <TextView
+                android:id="@+id/textStadium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="주소 | 서울특별시 중구 태평로2가 60-18"
+                android:textSize="13sp"
+                android:textColor="#444444"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- 실력 -->
+            <TextView
+                android:id="@+id/textSkill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="실력 : 5"
+                android:textSize="13sp"
+                android:textColor="#444444" />
+
+            <!-- 남는 공간을 채워 우하단 타임스탬프와 간섭 방지 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <!-- 우하단: 작성 시각 -->
+        <TextView
+            android:id="@+id/textTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="22시간 전"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E" />
+    </RelativeLayout>
+
+    <!-- 구분선 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EDEDED"/>
+</LinearLayout>

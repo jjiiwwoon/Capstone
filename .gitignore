@@ -1,0 +1,26 @@
+# --- Android Studio & Gradle (기존 설정) ---
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# --- Security: Firebase & Google Cloud Secrets (추가된 부분) ---
+# 중요: Firebase 관리자 키나 서비스 계정 키 파일(JSON)이 깃허브에 노출되지 않게 막습니다.
+*.json
+# 만약 특정 JSON만 막고 싶다면 아래처럼 적어도 되지만, *.json이 가장 안전합니다.
+# app/myapp-dca55-firebase-adminsdk-*.json
+
+# --- 기타 OS 및 임시 파일 ---
+*.swp
+*.bak

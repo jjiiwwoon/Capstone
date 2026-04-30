@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="6dp"
+    android:clipToPadding="false"
+    android:paddingBottom="10dp">
+
+    <!-- 프로필 -->
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_circle_light"
+        android:clipToOutline="true" />
+
+    <!-- 닉네임 + (말풍선+시간) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 닉네임 -->
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상대 닉네임"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="2dp" />
+
+        <!-- 말풍선 + 시간 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- 말풍선 -->
+            <TextView
+                android:id="@+id/textMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_left"
+                android:padding="10dp"
+                android:text="받은 메시지"
+                android:textSize="14sp"
+                android:textColor="#111111"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2dp"
+                android:breakStrategy="simple"
+                android:hyphenationFrequency="normal"
+                android:layout_marginEnd="6dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 시간 -->
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오전 11:47"
+                android:textSize="10sp"
+                android:textColor="#999999"
+                app:layout_constraintStart_toEndOf="@id/textMessage"
+                app:layout_constraintBottom_toBottomOf="@id/textMessage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 초대 버튼 영역 -->
+        <LinearLayout
+            android:id="@+id/inviteButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:visibility="gone"
+            android:layout_marginTop="6dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAccept"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="수락"
+                android:textColor="#FFFFFF"
+                android:minWidth="64dp"
+            android:paddingHorizontal="12dp"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#66BB6A" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReject"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="거절"
+                android:textColor="#FFFFFF"
+                android:minWidth="64dp"
+            android:paddingHorizontal="12dp"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#EF5350" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

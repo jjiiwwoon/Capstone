@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dayContainer"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    android:gravity="top|center_horizontal"
+    android:paddingTop="6dp"
+    android:paddingBottom="4dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="@drawable/bg_rect_default">
+
+    <!-- 날짜 숫자 -->
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- 매치 표시: 날짜 아래 "Match" + 축구공 -->
+    <LinearLayout
+        android:id="@+id/matchIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Match"
+            android:textSize="12sp"
+            android:textColor="#FF5722"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false" />
+
+        <ImageView
+            android:id="@+id/iconMatch"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_soccer_ball" />
+    </LinearLayout>
+
+</LinearLayout>

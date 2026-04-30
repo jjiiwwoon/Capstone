@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/applicationsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA"
+    android:padding="12dp"
+    android:fitsSystemWindows="true">
+
+    <!-- 주체 토글 -->
+    <LinearLayout
+        android:id="@+id/toggleSubject"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#F2F6FF"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/btnSubjectMine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="내가 작성글"
+            android:textSize="13sp"
+            android:textColor="#2196F3"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/btnSubjectApplied"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="신청글"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:background="#E9F0FF"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <!-- 구분 칩 -->
+    <LinearLayout
+        android:id="@+id/chipsTypeRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/chipTypeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="전체"
+            android:textSize="13sp"
+            android:textColor="#2196F3"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/chipTypeRecruit"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="팀원모집"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/chipTypeMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="시합"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:background="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- ✅ 리스트 영역 추가 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerApplications"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="8dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 팀 정보 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="@android:color/white">
+
+        <!-- ✅ 라운드된 팀 로고 -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/teamLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_round_image"
+            android:contentDescription="팀 로고"
+            app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+        <!-- 텍스트 정보 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/teamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이그니스 유나이티드"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/teamRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="서울 강동구"
+                android:textSize="14sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/teamSkillAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="실력: 3   나이: 20~30"
+                android:textSize="14sp"
+                android:textColor="#666666" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 🔹 하단 액션 영역 : 시합 제안 버튼 -->
+    <LinearLayout
+        android:id="@+id/teamActionsRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="8dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnProposeMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:paddingHorizontal="16dp"
+            android:text="시합 제안"
+            android:textSize="13sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_button_blue"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 실선 Divider (양끝 여백 적용) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="#DDDDDD" />
+</LinearLayout>

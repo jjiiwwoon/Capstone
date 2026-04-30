@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- 제목 / 기본 정보 -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="매치 타이틀"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시간"
+            android:textSize="14sp"
+            android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvOpponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="상대 팀"
+            android:textSize="14sp"
+            android:textStyle="bold"
+        />
+
+
+        <!-- ✅ 주내용: 장소(라벨 고정) -->
+        <TextView
+            android:id="@+id/tvStadium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="장소: -"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+
+        <!-- ✅ 보조: 주소(작은 글씨, 라벨 없음) -->
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginTop="2dp" />
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE"/>
+
+        <!-- 우측 하단 버튼 영역 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <!-- 기록하기 버튼 (밝은 계열 유지) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWriteRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:minWidth="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:text="기록하기"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="20dp"
+                app:backgroundTint="#5AC8FA" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

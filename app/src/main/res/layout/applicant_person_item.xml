@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <!-- applicant_item.xml 과 동일한 수평 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/rootItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+
+        <!-- 프로필 이미지 -->
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_rounded_rect_12"
+            android:clipToOutline="true" />
+
+        <!-- 정보 + 버튼 묶음 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 닉네임 -->
+            <TextView
+                android:id="@+id/textNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- 포지션 -->
+            <TextView
+                android:id="@+id/textPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="포지션: MF"
+                android:textColor="#666666"
+                android:textSize="13sp" />
+
+            <!-- 실력 -->
+            <TextView
+                android:id="@+id/textSkill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="실력: 3"
+                android:textColor="#444444"
+                android:textSize="13sp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- 버튼 가로 배치: 우측 정렬 (수락/거절/채팅) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="2dp">
+
+                <!-- 수락 (밝은 초록계열) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAccept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="56dp"
+                    android:minHeight="28dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="수락"
+                    android:textSize="13sp"
+                    android:textColor="#1B5E20"
+                    app:cornerRadius="14dp"
+                    app:backgroundTint="#E8F5E9"
+                    android:layout_marginEnd="8dp"/>
+
+                <!-- 거절 (밝은 빨강계열) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="56dp"
+                    android:minHeight="28dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="거절"
+                    android:textSize="13sp"
+                    android:textColor="#B71C1C"
+                    app:cornerRadius="14dp"
+                    app:backgroundTint="#FFEBEE"/>
+
+                <!-- 채팅 (밝은 파랑계열, 기본 GONE) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="56dp"
+                    android:minHeight="28dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="채팅"
+                    android:textSize="13sp"
+                    android:textColor="#0D47A1"
+                    app:cornerRadius="14dp"
+                    app:backgroundTint="#E3F2FD"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- 상태 텍스트 -->
+            <TextView
+                android:id="@+id/textApplicantStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대기중"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginTop="4dp"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 🔴 NEW 배지: 우상단 오버레이 -->
+    <TextView
+        android:id="@+id/badgeNewRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:text="NEW"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="#D32F2F"
+        android:visibility="gone"/>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택됨 (톤 다운된 야광 파랑/민트 느낌) -->
+    <item android:color="#26C6DA" android:state_checked="true"/>
+    <!-- 선택안됨 -->
+    <item android:color="#EEEEEE"/>
+</selector>

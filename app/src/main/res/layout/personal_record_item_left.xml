@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/personal_record_item_left.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#FFFFFF"
+    android:paddingStart="10dp"
+    android:paddingEnd="8dp"
+    android:divider="@drawable/divider_vertical_light"
+    android:showDividers="none">
+
+    <!-- 순위 -->
+    <TextView
+        android:id="@+id/tvRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:textStyle="bold"
+        android:textColor="#424242"
+        android:paddingEnd="6dp" />
+
+    <!-- 프로필 이미지 -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+        android:layout_marginEnd="6dp" />
+
+    <!-- 닉네임 (남은 공간 꽉) -->
+    <TextView
+        android:id="@+id/tvNickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="user1"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="#111111"
+        android:textSize="13sp" />
+</LinearLayout>

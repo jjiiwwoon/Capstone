@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 막대 1 (가장 낮음) -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M6,14h3v6H6z"/>
+
+    <!-- 막대 2 (중간) -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M11,10h3v10h-3z"/>
+
+    <!-- 막대 3 (가장 높음) -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M16,6h3v14h-3z"/>
+</vector>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- StateLayout 루트 + 기존 콘텐츠를 CONTENT로 감쌈 -->
+<com.example.myapp.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    app:loadingLayout="@layout/view_state_loading"
+    app:emptyLayout="@layout/view_state_empty"
+    android:background="#F7F9FC">
+
+    <!-- 🔹 CONTENT -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false">
+
+            <!-- 화면 가장자리 여백 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- ✅ 다가오는 일정 헤더(텍스트만) : 카드 바깥 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="6dp">
+
+                    <!-- 기존 코드 호환을 위해 id 유지 -->
+                    <TextView
+                        android:id="@+id/nextScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="다가오는 일정"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#111827"/>
+                    <!-- 🆕 경기 참석 투표 버튼 (밝은 색 계열) -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVoteAttendance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="8dp"
+                        android:minHeight="36dp"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="경기 참석 투표하기"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        app:cornerRadius="12dp"
+                        app:backgroundTint="#1E88E5"
+                    app:rippleColor="@android:color/white"
+                    app:strokeWidth="0dp"/>
+                </LinearLayout>
+
+                <!-- 🔹 다가오는 일정 전체 컨테이너 -->
+                <LinearLayout
+                    android:id="@+id/nextScheduleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- 기존 카드 include 그대로 안으로 이동 -->
+                    <include
+                        android:id="@+id/nextScheduleCard"
+                        layout="@layout/view_next_schedule_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <!-- 구분선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0" />
+
+                <!-- 전체 일정(달력) 섹션 타이틀 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체 일정"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#111827"/>
+
+                <!-- 달력 카드 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <FrameLayout
+                        android:id="@+id/calendarContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 구분선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#E0E0E0" />
+
+                <!-- 선택된 날짜 일정 타이틀 + 인라인 로딩 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvSelectedDateTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="선택된 날짜 일정"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- 인라인 로딩 아이콘(작게, 기본 GONE) -->
+                    <ProgressBar
+                        android:id="@+id/progressSelectedDate"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <!-- ✅ 선택된 날짜 일정: 카드 리스트 컨테이너 -->
+                <LinearLayout
+                    android:id="@+id/selectedDateList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- (선택) RecyclerView를 사용하지 않을 경우 제거 또는 GONE 처리 가능 -->
+                <!--
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/scheduleRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"
+                    android:visibility="gone"/>
+                -->
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</com.example.myapp.StateLayout>

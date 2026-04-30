@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#FFFFFF"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:divider="@drawable/divider_vertical_light"
+    android:showDividers="middle">
+
+    <!-- 순위 + 프로필 + 닉네임 (넓게) -->
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvRank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1."
+            android:textStyle="bold"
+            android:textColor="#111111"
+            android:paddingEnd="6dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+            android:layout_marginEnd="6dp" />
+
+        <TextView
+            android:id="@+id/tvNickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="user1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="#111111"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- 경기 -->
+    <TextView
+        android:id="@+id/tvGames"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#424242"
+        android:textSize="13sp" />
+
+    <!-- 득점 (테두리 제거) -->
+    <TextView
+        android:id="@+id/tvGoals"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#424242"
+        android:textSize="13sp" />
+
+    <!-- 도움 (테두리 제거) -->
+    <TextView
+        android:id="@+id/tvAssists"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#424242"
+        android:textSize="13sp" />
+
+    <!-- 공격P (테두리 제거) -->
+    <TextView
+        android:id="@+id/tvAttackP"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#424242"
+        android:textSize="13sp" />
+
+</LinearLayout>

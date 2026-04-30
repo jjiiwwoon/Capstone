@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".Home">
+
+    <!-- 프래그먼트 영역 -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 하단 네비게이션 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@android:color/transparent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:elevation="6dp">
+
+            <LinearLayout
+                android:id="@+id/bottomNavBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="8dp">
+
+                <!-- 1) 모집/매치 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRecruitMatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="모집/매치"
+                    android:textSize="11sp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="#20000000"
+                    android:textColor="#000000"
+                    app:icon="@drawable/baseline_handshake_24"
+                    app:iconTint="#000000"
+                    app:iconGravity="top"
+                    app:iconSize="20dp"
+                    app:iconPadding="2dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                <!-- 2) My팀 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMyTeam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="My팀"
+                    android:textSize="11sp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="#20000000"
+                    android:textColor="#000000"
+                    app:icon="@drawable/baseline_groups_24"
+                    app:iconTint="#000000"
+                    app:iconGravity="top"
+                    app:iconSize="20dp"
+                    app:iconPadding="2dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                <!-- 3) 팀 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOtherTeams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="팀"
+                    android:textSize="11sp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="#20000000"
+                    android:textColor="#000000"
+                    app:icon="@drawable/ic_shield_gray"
+                    app:iconTint="#000000"
+                    app:iconGravity="top"
+                    app:iconSize="20dp"
+                    app:iconPadding="2dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                <!-- 4) 내 프로필 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMyProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="내 프로필"
+                    android:textSize="11sp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="#20000000"
+                    android:textColor="#000000"
+                    app:icon="@drawable/ic_profile_person_24"
+                    app:iconTint="#000000"
+                    app:iconGravity="top"
+                    app:iconSize="20dp"
+                    app:iconPadding="2dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                <!-- 5) 채팅 (배지 포함) -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="56dp"
+                        android:text="채팅"
+                        android:textSize="11sp"
+                        app:cornerRadius="0dp"
+                        app:backgroundTint="@android:color/transparent"
+                        app:rippleColor="#20000000"
+                        android:textColor="#000000"
+                        app:icon="@drawable/baseline_chat_24"
+                        app:iconTint="#000000"
+                        app:iconGravity="top"
+                        app:iconSize="20dp"
+                        app:iconPadding="2dp"
+                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                    <!-- 빨간 원형 뱃지 -->
+                    <TextView
+                        android:id="@+id/chatBadge"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="end|top"
+                        android:translationX="-6dp"
+                        android:translationY="5dp"
+                        android:gravity="center"
+                        android:background="@drawable/bg_badge_red"
+                        android:text="!"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:visibility="gone"
+                        android:importantForAccessibility="no" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</LinearLayout>

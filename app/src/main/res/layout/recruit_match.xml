@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recruitMatchRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <!-- ✅ 위쪽 내용은 세로 LinearLayout 으로 순서대로 배치 -->
+    <LinearLayout
+        android:id="@+id/contentColumn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 상단 탭 (팀원모집 / 시합) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/topTabsCard"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:id="@+id/topTabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/tab_container_bg">
+
+                <TextView
+                    android:id="@+id/btnRecruitTab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="팀원모집"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_selector"
+                    android:background="@drawable/tab_left_selector" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#E0E0E0" />
+
+                <TextView
+                    android:id="@+id/btnMatchTab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="시합"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_selector"
+                    android:background="@drawable/tab_right_selector" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 신청 목록 보기 -->
+        <LinearLayout
+            android:id="@+id/applicationsBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FAFAFA"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:id="@+id/btnApplicationsList"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/bg_button_blue"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/textApplicationsList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📋 신청 목록 보기"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/badgeNewApplications"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="6dp"
+                    android:gravity="center"
+                    android:text="!"
+                    android:textStyle="bold"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_badge_red_circle"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🔹 시합 / 팀 하위 탭 (텍스트: 시합 | 팀) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/matchModeTabsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:strokeColor="@android:color/transparent">
+
+            <LinearLayout
+                android:id="@+id/matchModeTabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <!-- 시합 탭 -->
+                <TextView
+                    android:id="@+id/btnMatchListTab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="시합"
+                    android:textSize="13sp"
+                    android:textColor="#2196F3" />
+
+                <!-- 구분자 | -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:text="|"
+                    android:textSize="13sp"
+                    android:textColor="#BDBDBD" />
+
+                <!-- 팀 탭 -->
+                <TextView
+                    android:id="@+id/btnTeamMatchTab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="팀"
+                    android:textSize="13sp"
+                    android:textColor="#9E9E9E" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔹 팀 매칭용 "팀 찾기" 버튼 (시합|팀 바로 아래) -->
+        <TextView
+            android:id="@+id/btnTeamFindGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="팀 찾기"
+            android:textSize="13sp"
+            android:textColor="#2196F3"
+            android:visibility="gone" />
+
+        <!-- 🔽 필터 영역 : 버튼 + 칩 한 줄 -->
+        <LinearLayout
+            android:id="@+id/filterBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="2dp"
+            android:background="#FAFAFA">
+
+            <!-- 필터 버튼 -->
+            <LinearLayout
+                android:id="@+id/btnOpenFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:background="@drawable/bg_filter_chip"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_filter_list"
+                    android:tint="#2196F3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="필터"
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <!-- 선택된 필터 칩들 -->
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/selectedFilterChips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- 하위 프래그먼트 (목록 영역) -->
+        <FrameLayout
+            android:id="@+id/recruit_match_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- ===== Speed Dial 공용 (위 내용 위에 오버레이) ===== -->
+    <View
+        android:id="@+id/speedDialScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/speedDialActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/btnActionRecruit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:gravity="center"
+            android:background="@drawable/bg_speed_action"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_person_add"
+                android:tint="#000000"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="팀원모집"
+                android:textSize="13sp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnActionMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:gravity="center"
+            android:background="@drawable/bg_speed_action"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_soccer"
+                android:tint="#000000"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시합"
+                android:textSize="13sp"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 메인 FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSpeedDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="글쓰기 메뉴"
+        android:tint="@android:color/white"
+        app:srcCompat="@drawable/ic_add_white"
+        app:backgroundTint="#0ED7ED" />
+
+</FrameLayout>

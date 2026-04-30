@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myapp.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/state"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:loadingLayout="@layout/view_state_loading"
+    app:emptyLayout="@layout/view_state_empty">
+
+    <!-- ↓↓↓↓↓ 기존 전체 레이아웃을 그대로 하나로 감싸 StateLayout의 '콘텐츠' 자식으로 둡니다 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F3F4F6"
+        android:fitsSystemWindows="true">
+
+        <!-- 스크롤 영역 -->
+        <ScrollView
+            android:id="@+id/scrollArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/layoutTeamInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 1) 헤더 카드 : 팀 요약 + 칩 + 최근 전적 -->
+                <LinearLayout
+                    android:id="@+id/teamInfoBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_light"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <!-- 팀 정보 헤더 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_shield_gray"
+                            android:tint="#42A5F5"
+                            android:contentDescription="팀 정보 아이콘" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="팀 정보"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 팀 로고 + 팀명/실력 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imgTeamLogo"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="12dp"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="팀 로고"
+                            app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtTeamName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Team"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#111111" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 팀 정보 칩 -->
+                    <LinearLayout
+                        android:id="@+id/infoChipsDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/chipAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="나이대: 20~30대"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/chipRegion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="지역: 서울 강동구"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/chipSkill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:text="실력: 5"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- 최근 전적 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp">
+
+                        <!-- 타이틀 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_calendar"
+                                android:tint="#42A5F5" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="최근 전적 (5경기)"
+                                android:textColor="#111111"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginStart="6dp" />
+                        </LinearLayout>
+
+                        <!-- 결과 타일 5개 -->
+                        <LinearLayout
+                            android:id="@+id/recentTiles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:id="@+id/tile1"
+                                android:layout_width="0dp"
+                                android:layout_height="28dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="12sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_result_neutral"
+                                android:layout_marginEnd="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tile2"
+                                android:layout_width="0dp"
+                                android:layout_height="28dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="12sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_result_neutral"
+                                android:layout_marginEnd="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tile3"
+                                android:layout_width="0dp"
+                                android:layout_height="28dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="12sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_result_neutral"
+                                android:layout_marginEnd="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tile4"
+                                android:layout_width="0dp"
+                                android:layout_height="28dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="12sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_result_neutral"
+                                android:layout_marginEnd="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tile5"
+                                android:layout_width="0dp"
+                                android:layout_height="28dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="12sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_result_neutral"/>
+                        </LinearLayout>
+
+                        <!-- 합계 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvRecentWin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="승 0"
+                                android:textColor="#2E7D32"
+                                android:textSize="12sp"/>
+
+                            <TextView
+                                android:id="@+id/tvRecentDraw"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="  ·  무 0"
+                                android:textColor="#546E7A"
+                                android:textSize="12sp"/>
+
+                            <TextView
+                                android:id="@+id/tvRecentLoss"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="  ·  패 0"
+                                android:textColor="#B71C1C"
+                                android:textSize="12sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="   |   "
+                                android:textColor="#B0BEC5"
+                                android:textSize="12sp"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginEnd="6dp"/>
+
+                            <TextView
+                                android:id="@+id/tvRecentGF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="득점 0"
+                                android:textColor="#1E88E5"
+                                android:textSize="12sp"/>
+
+                            <TextView
+                                android:id="@+id/tvRecentGA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="  ·  실점 0"
+                                android:textColor="#D32F2F"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 2) 시합정보 + 상세내용 통합 카드 -->
+                <LinearLayout
+                    android:id="@+id/matchInfoBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_light"
+                    android:padding="12dp"
+                    android:layout_marginTop="16dp">
+
+                    <!-- 카드 최상단: 시합 내용 (요청사항) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/bg_blue_circle" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="시합 정보"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 일정 섹션 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_calendar"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="일정"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2025-10-11  |  18:00 ~ 22:00"
+                        android:textSize="14sp"
+                        android:textColor="#111111"
+                        android:background="@drawable/pill_bg"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:layout_marginTop="6dp" />
+
+                    <!-- 경기장 섹션 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="14dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_location_pin"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="경기장"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtStadium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="천마축구장"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#111111"
+                        android:layout_marginTop="8dp" />
+
+                    <LinearLayout
+                        android:id="@+id/addressTapArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_field_tap"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_marginTop="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_map"
+                            android:tint="#1E88E5" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="대한민국 서울특별시 송파구 마천동 236-1"
+                            android:textSize="14sp"
+                            android:textColor="#111111" />
+                    </LinearLayout>
+
+                    <!-- 시합 상세내용 섹션 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="14dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_notes"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="시합 상세내용"
+                            android:textSize="14sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Match 설명"
+                        android:textSize="14sp"
+                        android:textColor="#111111"
+                        android:background="@drawable/bg_field_readonly"
+                        android:padding="12dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 하단 고정 버튼 (밝은색 계열 유지) -->
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApply"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="신청하기"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:cornerRadius="24dp"
+                android:backgroundTint="#0ED7ED"
+                app:rippleColor="@color/white" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.example.myapp.StateLayout>

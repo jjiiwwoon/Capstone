@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/write_record.xml -->
+<com.example.myapp.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:loadingLayout="@layout/view_state_loading"
+    app:emptyLayout="@layout/view_state_empty">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:background="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- ✅ 스코어보드 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/scoreRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideLeft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.28" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.72" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgHomeLogo"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="우리팀 로고"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/guideLeft"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+                        app:strokeColor="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/tvHomeName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="우리팀"
+                        android:textColor="#212121"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:layout_marginTop="6dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/guideLeft"
+                        app:layout_constraintTop_toBottomOf="@id/imgHomeLogo" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgAwayLogo"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="상대팀 로고"
+                        app:layout_constraintStart_toEndOf="@id/guideRight"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+                        app:strokeColor="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/tvAwayName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="상대팀"
+                        android:textColor="#212121"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:layout_marginTop="6dp"
+                        app:layout_constraintStart_toEndOf="@id/guideRight"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgAwayLogo" />
+
+                    <LinearLayout
+                        android:id="@+id/centerScore"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        app:layout_constraintStart_toEndOf="@id/guideLeft"
+                        app:layout_constraintEnd_toStartOf="@id/guideRight"
+                        app:layout_constraintTop_toTopOf="@id/imgHomeLogo"
+                        app:layout_constraintBottom_toBottomOf="@id/imgHomeLogo">
+
+                        <EditText
+                            android:id="@+id/editScoreFor"
+                            android:layout_width="52dp"
+                            android:layout_height="44dp"
+                            android:inputType="number"
+                            android:digits="0123456789"
+                            android:maxLength="2"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121"
+                            android:textColorHint="#9E9E9E"
+                            android:hint="0"
+                            android:includeFontPadding="false"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="6dp"
+                            android:background="@drawable/bg_score_box"
+                            android:importantForAutofill="no" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textColor="#212121"
+                            android:textSize="20sp"
+                            android:paddingStart="4dp"
+                            android:paddingEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/editScoreAgainst"
+                            android:layout_width="52dp"
+                            android:layout_height="44dp"
+                            android:inputType="number"
+                            android:digits="0123456789"
+                            android:maxLength="2"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121"
+                            android:textColorHint="#9E9E9E"
+                            android:hint="0"
+                            android:includeFontPadding="false"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="6dp"
+                            android:background="@drawable/bg_score_box"
+                            android:importantForAutofill="no" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- 🟦 라벨 헤더(고정): 득점 / 도움 -->
+                <LinearLayout
+                    android:id="@+id/goalEventHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="6dp">
+
+                    <TextView
+                        android:id="@+id/labelScorerHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="득점"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/labelAssistHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="도움"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- 🟦 골 이벤트 행 컨테이너 (초기: 비워둠) -->
+                <LinearLayout
+                    android:id="@+id/goalEventListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- + 추가 (래퍼 전체 클릭 가능) -->
+                <LinearLayout
+                    android:id="@+id/addEventRowWrap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageButton
+                        android:id="@+id/btnAddGoalEvent"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="골 이벤트 추가"
+                        android:src="@drawable/ic_plus_thin"
+                        android:clickable="false"
+                        android:focusable="false"/>
+
+                    <TextView
+                        android:id="@+id/tvAddGoalEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="추가"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:clickable="false"
+                        android:focusable="false"/>
+                </LinearLayout>
+
+                <!-- 하단 여백 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <!-- 저장 버튼(밝은 색) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:text="저장"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="24dp"
+                    app:backgroundTint="#0ED7ED"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+</com.example.myapp.StateLayout>

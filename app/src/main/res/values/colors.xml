@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="win">#2E7D32</color>
+    <color name="draw">#546E7A</color>
+    <color name="loss">#B71C1C</color>
+    <color name="goal_for">#1E88E5</color>
+    <color name="goal_against">#D32F2F</color>
+
+
+    <color name="position_fw">#D50000</color>
+    <color name="position_mf">#00C853</color>
+    <color name="position_df">#2962FF</color>
+    <color name="position_gk">#FFD600</color>
+
+</resources>

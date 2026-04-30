@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="4dp"
+    android:paddingHorizontal="10dp"
+    android:background="#F7F9FC">
+
+<com.google.android.material.imageview.ShapeableImageView
+android:id="@+id/imgPlayer"
+android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_marginEnd="10dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/default_profile_image"
+    android:contentDescription="프로필"
+    app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+<LinearLayout
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:baselineAligned="true">
+
+    <TextView
+        android:id="@+id/tvPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"
+        android:textColor="#111111"
+        android:textSize="14sp"
+    android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvPipe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" | "
+        android:textColor="#888888"
+        android:textSize="13sp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPlayerPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DF"
+        android:textColor="#666666"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tvPipe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" | "
+        android:textColor="#888888"
+        android:textSize="13sp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvPlayerRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주장"
+        android:textColor="#D32F2F"
+        android:textSize="13sp"
+    android:visibility="gone"/>
+</LinearLayout>
+</LinearLayout>
+
+<TextView
+android:id="@+id/tvPlayerGoals"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="0골"
+android:textColor="#111111"
+android:textStyle="bold"/>
+    </LinearLayout>

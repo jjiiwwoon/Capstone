@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 포지션 스피너용 -->
+    <string-array name="position_array">
+        <item>포지션</item> <!-- 안내 텍스트 추가 -->
+        <item>FW</item>
+        <item>MF</item>
+        <item>DF</item>
+        <item>GK</item>
+    </string-array>
+
+    <!-- 실력 스피너용 (1~10) -->
+    <string-array name="skill_array">
+        <item>실력(높을수록 잘함)</item> <!-- 안내 텍스트 추가 -->
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="foot_array">
+        <item>오른발</item>
+        <item>왼발</item>
+        <item>양발</item>
+    </string-array>
+
+    <!-- 전국 시/도 리스트 -->
+    <string-array name="city_array">
+        <item>전체</item>
+        <item>서울</item>
+        <item>부산</item>
+        <item>대구</item>
+        <item>인천</item>
+        <item>광주</item>
+        <item>대전</item>
+        <item>울산</item>
+        <item>세종</item>
+        <item>경기도</item>
+        <item>강원도</item>
+        <item>충북</item>
+        <item>충남</item>
+        <item>전북</item>
+        <item>전남</item>
+        <item>경북</item>
+        <item>경남</item>
+        <item>제주도</item>
+    </string-array>
+
+    <string-array name="skill_filter_array">
+        <item>전체</item> <!-- 선택 안 함 상태 -->
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="age_array">
+        <item>전체</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60~</item>
+    </string-array>
+
+    <string-array name="day_array">
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+        <item>일</item>
+    </string-array>
+
+    <string-array name="time_array">
+        <item>00:00</item>
+        <item>01:00</item>
+        <item>02:00</item>
+        <item>03:00</item>
+        <item>04:00</item>
+        <item>05:00</item>
+        <item>06:00</item>
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+
+    <string-array name="formations">
+        <item>4-1-2-1-2</item>
+        <item>4-1-3-2</item>
+        <item>4-1-4-1</item>
+        <item>4-2-2-2</item>
+        <item>4-2-3-1</item>
+        <item>4-2-4</item>
+        <item>4-3-1-2</item>
+        <item>4-3-2-1</item>
+        <item>4-3-3</item>
+        <item>4-4-1-1</item>
+        <item>4-4-2</item>
+        <item>4-5-1</item>
+        <item>3-1-4-2</item>
+        <item>3-4-1-2</item>
+        <item>3-4-2-1</item>
+        <item>3-4-3</item>
+        <item>3-5-1-1</item>
+        <item>3-5-2</item>
+        <item>5-2-1-2</item>
+        <item>5-2-2-1</item>
+        <item>5-2-3</item>
+        <item>5-3-1-1</item>
+        <item>5-3-2</item>
+        <item>5-4-1</item>
+        <item>3-6-1</item>
+        <item>4-1-5</item>
+        <item>2-5-3</item>
+    </string-array>
+
+    <string-array name="player_level_array">
+        <item>중등 선출</item>
+        <item>고등 선출</item>
+        <item>대학 선출</item>
+        <item>K1 또는 K2</item>
+        <item>K3 또는 K4</item>
+    </string-array>
+
+    <!-- 모집 종류 (정식/일일) -->
+    <string-array name="recruit_type_array">
+        <item>전체</item>
+        <item>회원</item>
+        <item>용병</item>
+    </string-array>
+
+</resources>

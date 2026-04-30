@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 메달 + 별 (별은 투명하게 뚫기) -->
+    <path
+        android:fillColor="#000000"
+        android:fillType="evenOdd"
+        android:pathData="M12,2
+            A10,10 0 1,0 12,22
+            A10,10 0 1,0 12,2Z
+            M12,7.5
+            L13.76,11.2
+            L17.8,11.2
+            L14.52,13.4
+            L15.9,17
+            L12,14.9
+            L8.1,17
+            L9.48,13.4
+            L6.2,11.2
+            L10.24,11.2Z"/>
+
+    <!-- 리본 -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M9,18 L15,18 L13,22 L11,22 Z"/>
+</vector>

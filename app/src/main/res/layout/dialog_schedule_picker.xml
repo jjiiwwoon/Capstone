@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 일정 선택 바텀시트 레이아웃 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="일정 선택"
+        android:textSize="16sp"
+        android:textColor="#111111"
+        android:paddingBottom="8dp"
+        android:textStyle="bold"
+        android:textAlignment="center" /> <!-- ✅ 가운데 정렬 -->
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="불러올 일정이 없습니다."
+        android:textColor="#666666"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:textAlignment="center"/> <!-- ✅ 빈 메시지도 가운데 정렬 -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+</LinearLayout>

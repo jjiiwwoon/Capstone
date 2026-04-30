@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recruitRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA"
+    android:fitsSystemWindows="true">
+
+    <!-- 상단: 모집 종류 (카드) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_light"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모집 종류"
+                android:textSize="16sp"
+                android:textColor="#111111"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/radioRecruitType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rdoRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="회원"
+                    android:checked="true"
+                    android:textSize="14sp"
+                    android:textColor="#222222"
+                    app:buttonTint="#42A5F5" />
+
+                <RadioButton
+                    android:id="@+id/rdoMercenary"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="용병"
+                    android:textSize="14sp"
+                    android:textColor="#222222"
+                    app:buttonTint="#42A5F5" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 스크롤 영역 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="16dp">
+
+
+        <!-- A) 정식선수 전용: 읽기 전용 카드 -->
+            <LinearLayout
+                android:id="@+id/containerRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_light"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- 활동일 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="활동일"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvRegularDate"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:text="팀 활동일"
+                        android:textColor="#333333"
+                        android:background="@drawable/bg_field_readonly"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- 활동시간 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_clock"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="활동시간"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvRegularTime"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:text="팀 활동시간"
+                        android:textColor="#333333"
+                        android:background="@drawable/bg_field_readonly"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- 주활동구장 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="6dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_location_pin"
+                            android:tint="#42A5F5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주활동구장"
+                            android:textSize="15sp"
+                            android:textColor="#111111"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvRegularStadium"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:text="팀 주활동구장"
+                        android:textColor="#333333"
+                        android:background="@drawable/bg_field_readonly" />
+                </LinearLayout>
+
+                <!-- 활동지역 -->
+                <TextView
+                    android:id="@+id/tvRegularAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_field_readonly"
+                    android:padding="10dp"
+                    android:text="팀 활동지역"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- B) 용병(일일) 전용: 카드 -->
+            <LinearLayout
+                android:id="@+id/containerMercenary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_light"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+
+                <!-- 날짜 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="날짜"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:text="날짜 선택"
+                        android:textColor="#333333"
+                        android:background="@drawable/bg_field_tap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- 시간 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_clock"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시간"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/txtTime"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:text="시간 선택"
+                        android:textColor="#333333"
+                        android:background="@drawable/bg_field_tap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- 시합장소 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_location_pin"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시합장소"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+
+                    <EditText
+                        android:id="@+id/editStadium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:hint="장소 입력"
+                        android:background="@android:color/transparent"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:paddingBottom="4dp" />
+                </LinearLayout>
+
+                <!-- 주소등록 버튼 -->
+                <TextView
+                    android:id="@+id/txtAddressSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:minWidth="72dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:gravity="center_vertical"
+                    android:text="주소등록"
+                    android:textColor="#1E88E5"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_chip_outline_blue"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- 선택된 주소 출력 -->
+                <TextView
+                    android:id="@+id/txtSelectedAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_field_readonly"
+                    android:padding="10dp"
+                    android:text="선택된 주소가 여기에 표시됩니다"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 일정 불러오기 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLoadFromSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="일정 불러오기"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    app:cornerRadius="12dp"
+                    android:backgroundTint="#42A5F5" />
+
+            </LinearLayout>
+
+            <!-- ───────── 공통 입력 영역 ───────── -->
+
+            <!-- 희망 실력 (스피너 2개) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_light"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_star"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="희망 실력"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="12dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerSkillMin"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=" ~ "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:paddingHorizontal="8dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerSkillMax"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 모집 포지션 (칩 다중 선택 / 1행 4등분, 체크아이콘 없음) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_light"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_soccer"
+                        app:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="모집 포지션(중복선택가능)"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <!-- 1행: GK / DF / MF / FW (4등분 균등폭) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGK"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        android:text="GK"
+                        android:textSize="16sp"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:textColor="@color/selector_position_chip_text"
+                        app:chipBackgroundColor="@color/selector_position_chip_bg"
+                        app:checkedIconVisible="false"
+                        app:rippleColor="@android:color/transparent"
+                        app:chipStrokeWidth="1dp"
+                        app:chipStrokeColor="#E0E0E0"
+                        app:textStartPadding="12dp"
+                        app:textEndPadding="12dp"
+                        app:chipStartPadding="12dp"
+                        app:chipEndPadding="12dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipDF"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        android:text="DF"
+                        android:textSize="16sp"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:textColor="@color/selector_position_chip_text"
+                        app:chipBackgroundColor="@color/selector_position_chip_bg"
+                        app:checkedIconVisible="false"
+                        app:rippleColor="@android:color/transparent"
+                        app:chipStrokeWidth="1dp"
+                        app:chipStrokeColor="#E0E0E0"
+                        app:textStartPadding="12dp"
+                        app:textEndPadding="12dp"
+                        app:chipStartPadding="12dp"
+                        app:chipEndPadding="12dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipMF"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        android:text="MF"
+                        android:textSize="16sp"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:textColor="@color/selector_position_chip_text"
+                        app:chipBackgroundColor="@color/selector_position_chip_bg"
+                        app:checkedIconVisible="false"
+                        app:rippleColor="@android:color/transparent"
+                        app:chipStrokeWidth="1dp"
+                        app:chipStrokeColor="#E0E0E0"
+                        app:textStartPadding="12dp"
+                        app:textEndPadding="12dp"
+                        app:chipStartPadding="12dp"
+                        app:chipEndPadding="12dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFW"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        android:text="FW"
+                        android:textSize="16sp"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:textColor="@color/selector_position_chip_text"
+                        app:chipBackgroundColor="@color/selector_position_chip_bg"
+                        app:checkedIconVisible="false"
+                        app:rippleColor="@android:color/transparent"
+                        app:chipStrokeWidth="1dp"
+                        app:chipStrokeColor="#E0E0E0"
+                        app:textStartPadding="12dp"
+                        app:textEndPadding="12dp"
+                        app:chipStartPadding="12dp"
+                        app:chipEndPadding="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 세부내용 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_light"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_notes"
+                        android:tint="#42A5F5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="세부내용"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:hint="세부내용을 입력하세요"
+                    android:gravity="top"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_multiline"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 등록 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="등록"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        app:cornerRadius="12dp"
+        android:backgroundTint="#42A5F5" />
+</LinearLayout>

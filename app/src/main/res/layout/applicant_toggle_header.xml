@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutToggleApplicants"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/textApplicantToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신청자 목록"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+    <!-- 🔹 신청자 수 배지 -->
+    <TextView
+        android:id="@+id/textApplicantCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="0"
+        android:textSize="12sp"
+        android:textColor="#111111"
+        android:background="@drawable/bg_count_badge" />
+
+    <!-- 🔹 NEW 배지 (닫힘 상태에서만, 새 신청이 있을 때 표시) -->
+    <TextView
+        android:id="@+id/textApplicantNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="NEW"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#D32F2F"
+        android:visibility="gone"/>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/iconToggleArrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_arrow_down"
+        android:contentDescription="화살표" />
+</LinearLayout>

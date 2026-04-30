@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myapp.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:loadingLayout="@layout/view_state_loading"
+    app:emptyLayout="@layout/view_state_empty">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/teamDetailRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:background="#F7F9FC">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/heroHeader"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/teamPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/default_team_photo"
+                    android:contentDescription="팀 사진" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_header_gradient" />
+            </FrameLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#E8EEF5"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:id="@+id/teamInfoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/teamHeaderBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:cardBackgroundColor="#F3F6FA"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/teamLogo"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginEnd="16dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_launcher_foreground"
+                                android:contentDescription="팀 로고"
+                                app:shapeAppearanceOverlay="@style/RoundedImageStyle" />
+
+                            <TextView
+                                android:id="@+id/teamName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#111827"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:id="@+id/specList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        android:divider="@drawable/divider_soft"
+                        android:showDividers="middle">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="30dp"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="6dp">
+                            <TextView style="@style/SpecLabel" android:text="주 연령대" />
+                            <TextView android:id="@+id/teamAge" style="@style/SpecValue" android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="30dp"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="6dp">
+                            <TextView style="@style/SpecLabel" android:text="실력" />
+                            <TextView android:id="@+id/teamSkill" style="@style/SpecValue" android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="30dp"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="6dp">
+                            <TextView style="@style/SpecLabel" android:text="활동 지역" />
+                            <TextView android:id="@+id/teamRegion" style="@style/SpecValue" android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/activityDayRow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="30dp"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="6dp">
+                            <TextView style="@style/SpecLabel" android:text="활동 시간" />
+                            <TextView android:id="@+id/teamActivityDay" style="@style/SpecValue" android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/homeStadiumBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="6dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="30dp"
+                                android:gravity="center_vertical">
+                                <TextView style="@style/SpecLabel" android:text="활동 장소" />
+                                <TextView android:id="@+id/teamHomeStadiumName" style="@style/SpecValue" android:text="" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/teamHomeStadiumAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textSize="12sp"
+                                android:textColor="#6B7280"
+                                android:layout_marginStart="70dp"
+                                android:textAlignment="viewEnd" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/introBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:padding="6dp"
+                        android:background="@drawable/bg_section_soft"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="8dp">
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1"
+                                android:background="#E5E7EB"/>
+                            <TextView
+                                android:id="@+id/introHeader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="팀 소개"
+                                android:textColor="#111827"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:paddingHorizontal="8dp"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1"
+                                android:background="#E5E7EB"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/teamIntro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#4B5563"
+                            android:textSize="14sp"
+                            android:gravity="start"
+                            android:textAlignment="viewStart"
+                            android:maxLines="10"
+                            android:ellipsize="end"
+                            android:breakStrategy="balanced"
+                            android:lineSpacingExtra="2dp"/>
+
+                        <ImageView
+                            android:id="@+id/introToggle"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="4dp"
+                            android:src="@drawable/ic_arrow_down"
+                            android:contentDescription="소개 더보기"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="12dp"
+                android:background="#F3F4F6" />
+
+            <LinearLayout
+                android:id="@+id/scheduleSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="#42A5F5"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="다가오는 일정"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#111827"/>
+
+                    <TextView
+                        android:id="@+id/btnSeeAllSchedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="일정 전체보기"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:padding="6dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/nextScheduleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp">
+
+                    <include
+                        android:id="@+id/nextScheduleCard"
+                        layout="@layout/view_next_schedule_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_schedule_to_record"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="#E0E0E0" />
+
+            <LinearLayout
+                android:id="@+id/recordHeaderRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_baseline_bar_chart_24"
+                    android:tint="#2196F3"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="기록"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#111827" />
+
+                <TextView
+                    android:id="@+id/tvSeeDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기록 전체보기"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:padding="6dp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/recordCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#E8EEF5"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:id="@+id/recordSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:paddingVertical="2dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="경기"
+                                android:textColor="#777777"
+                                android:textSize="12sp"/>
+                            <TextView
+                                android:id="@+id/tvGames"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textColor="#111111"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:paddingVertical="2dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="승"
+                                android:textColor="#2E7D32"
+                                android:textSize="12sp"/>
+                            <TextView
+                                android:id="@+id/tvWins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textColor="#2E7D32"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:paddingVertical="2dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="무"
+                                android:textColor="#546E7A"
+                                android:textSize="12sp"/>
+                            <TextView
+                                android:id="@+id/tvDraws"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textColor="#546E7A"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:paddingVertical="2dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="패"
+                                android:textColor="#B71C1C"
+                                android:textSize="12sp"/>
+                            <TextView
+                                android:id="@+id/tvLosses"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textColor="#B71C1C"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:paddingVertical="2dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="승률"
+                                android:textColor="#777777"
+                                android:textSize="12sp"/>
+                            <TextView
+                                android:id="@+id/tvWinRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textStyle="bold"
+                                android:textColor="#111111"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:paddingTop="4dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="득점"
+                                android:textColor="#1E88E5"
+                                android:textSize="11sp"/>
+                            <TextView
+                                android:id="@+id/tvGF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#444444"
+                                android:textStyle="bold"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="실점"
+                                android:textColor="#D32F2F"
+                                android:textSize="11sp"/>
+                            <TextView
+                                android:id="@+id/tvGA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#444444"
+                                android:textStyle="bold"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:id="@+id/divider_record_to_members"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="#E0E0E0" />
+
+            <LinearLayout
+                android:id="@+id/memberSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_group_24"
+                        android:tint="#2196F3"
+                        android:layout_marginEnd="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvMemberTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="팀 멤버 (0)"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#111827" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTeamMembers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="16dp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_members_to_actions"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#E0E0E0"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <LinearLayout
+                android:id="@+id/bottomActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="24dp"
+                android:layout_marginTop="4dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnInvite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="96dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp"
+                    android:text="초대하기"
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="16dp"
+                    app:backgroundTint="#26C6DA"
+                    android:layout_marginEnd="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLeaveTeam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="96dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp"
+                    android:text="팀 탈퇴"
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="16dp"
+                    app:backgroundTint="#E53935" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</com.example.myapp.StateLayout>
